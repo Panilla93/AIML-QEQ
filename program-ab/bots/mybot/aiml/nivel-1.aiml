@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<topic name="juego-bot">
+
+<!-- Decision de personaje e iniciacion del programa -->
+<category>
+<pattern>^ piensa ^ persona ^</pattern>
+<template>
+	<think>
+		<set name="lista_nombres">alejandro alfonso antonio cristina gabriela ivan javier juan laura luis marco maria paco pepe sofia sonia</set>
+		<set var="lista"> <get name="lista_nombres"/> </set>
+	   	<set var="cantidad"><srai>COUNT <get var="lista"/></srai></set>
+	    <set var="pos"><srai>RANDOM <get var="cantidad"/></srai></set>
+	    
+	    <set name="persona">
+	        <srai>
+	          SELECTITEM <get var="pos"/> IN <get var="lista"/>
+	        </srai>
+	    </set>
+
+	    <set name="pelo_personaje"> <map name="pelo"><get name="persona"/> </map> </set>
+	    <set name="ojos_personaje"> <map name="ojos"><get name="persona"/> </map> </set>
+	    <set name="piel_personaje"> <map name="piel"><get name="persona"/> </map> </set>
+	    <set name="gafas_personaje"> <map name="gafas"><get name="persona"/> </map> </set>
+	    <set name="bigote_personaje"> <map name="bigote"><get name="persona"/> </map> </set>
+	    <set name="barba_personaje"> <map name="barba"><get name="persona"/> </map> </set>
+	    <set name="sexo_personaje"> <map name="genero"><get name="persona"/> </map> </set>
+	</think>
+	Ok!!
+</template>
+</category>
+
+<category>
+<pattern>^ piensa ^ personaje ^</pattern>
+<template>
+	<srai><star index="1" /> piensa <star index="2"/> persona <star index="3"/></srai>
+</template>
+</category>
+
+<category>
+<pattern>^ elige ^ personaje ^</pattern>
+<template>
+	<srai><star index="1" /> piensa <star index="2"/> persona <star index="3"/></srai>
+</template>
+</category>
+
+<category>
+<pattern>^ elige ^ persona ^</pattern>
+<template>
+	<srai><star index="1" /> piensa <star index="2"/> persona <star index="3"/></srai>
+</template>
+</category>
+
+<category>
+<pattern>^ elige tu ^</pattern>
+<template>
+	<srai><star index="1" /> piensa <star index="2"/> persona <star index="3"/></srai>
+</template>
+</category>
+
+
+<!-- Cambio de topic -->  
+
+<category>
+<pattern>^ elijo yo ^</pattern>
+<template>
+	Vale, piensalo tu, pero no te pases de dificil ;) 
+	<think><set name="topic">juego-bot-2</set></think>
+</template>
+</category>
+
+<category>
+<pattern>^ pienso ^ personaje ^</pattern>
+<template>
+	<srai><star index="1" /> elijo yo <star index="2"/></srai>
+</template>
+</category>
+
+<category>
+<pattern>^ elijo ^ personaje ^</pattern>
+<template>
+	<srai><star index="1" /> elijo yo <star index="2"/></srai>
+</template>
+</category>
+
+<category>
+<pattern>^ elijo ^ persona ^</pattern>
+<template>
+	<srai><star index="1" /> elijo yo <star index="2"/></srai>
+</template>
+</category>
+
+<!-- 
+	++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<category>
+<pattern> ^ pelo blanco ^</pattern>
+<template>
+	<condition name="pelo_personaje">
+		<li value="Blanco">Si</li>
+		<li> No </li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern> ^ pelo blanco ^</pattern>
+<template> 	
+		<srai><star index="1" /> pelo blanco <star index="2"/> </srai>
+</template>
+</category>
+
+<category>
+<pattern> ^ pelo marron ^</pattern>
+<template>
+	<condition name="pelo_personaje">
+		<li value="Marron">Si</li>
+		<li> No </li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern> ^ pelo marron ^</pattern>
+<template> 	
+		<srai><star index="1" /> pelo marron <star index="2"/> </srai>
+</template>
+</category>
+
+<category>
+<pattern> ^ rubio ^</pattern>
+<template>
+	<condition name="pelo_personaje">
+		<li value="Rubio">Si</li>
+		<li> No </li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern> ^ rubia ^</pattern>
+<template> 	
+		<srai><star index="1" /> rubio <star index="2"/> </srai>
+</template>
+</category>
+
+<category>
+<pattern> ^ moreno ^</pattern>
+<template> 	
+
+	<condition name="pelo_personaje">
+		<li value="Moreno">Si</li>
+		<li> No </li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern> ^ morena ^</pattern>
+<template> 	
+		<srai><star index="1" /> moreno <star index="2"/> </srai>
+</template>
+</category>
+
+<category>
+<pattern> ^ calvo ^</pattern>
+<template> 	
+	<condition name="pelo_personaje">
+		<li value="Calvo">Si</li>
+		<li> No </li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern> ^ pelirrojo ^</pattern>
+<template> 	
+	<condition name="pelo_personaje">
+		<li value="Pelirrojo">Si</li>
+		<li> No </li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern> ^ pelirroja ^</pattern>
+<template> 	
+		<srai><star index="1" /> pelirrojo <star index="2"/> </srai>
+</template>
+</category>
+
+<category>
+<pattern> ^ piel oscura ^</pattern>
+<template> 	
+	<condition name="piel_personaje">
+		<li value="Oscura">Si</li>
+		<li> No </li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern> ^ negro ^</pattern>
+<template> 	
+		<srai><star index="1" /> piel oscura <star index="2"/> </srai>
+</template>
+</category>
+
+<category>
+<pattern> ^ afroamericano ^</pattern>
+<template> 	
+		<srai><star index="1" /> piel oscura <star index="2"/> </srai>
+</template>
+</category>
+
+
+<category>
+<pattern> ^ de color ^</pattern>
+<template> 	
+		<srai><star index="1" /> piel oscura <star index="2"/> </srai>
+</template>
+</category>
+
+
+<category>
+<pattern> ^ piel clara ^</pattern>
+<template> 	
+	<condition name="piel_personaje">
+		<li value="Clara">Si</li>
+		<li> No </li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern> ^ blanco ^</pattern>
+<template> 	
+		<srai><star index="1" /> piel clara <star index="2"/> </srai>
+</template>
+</category>
+
+
+<category>
+<pattern> ^ gafas ^</pattern>
+<template> 	
+	<condition name="gafas_personaje">
+		<li value="Si">Si</li>
+		<li> No </li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern> ^ no ^ gafas ^</pattern>
+<template> 	
+	<condition name="gafas_personaje">
+		<li value="No">Verdadero</li>
+		<li> Falso </li>
+	</condition>
+</template>
+</category>
+
+
+<category>
+<pattern> ^ mujer ^</pattern>
+<template> 	
+	<condition name="sexo_personaje">
+		<li value="Mujer">Si</li>
+		<li> No </li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern> ^ hombre ^</pattern>
+<template> 	
+	<condition name="sexo_personaje">
+		<li value="Hombre">Si</li>
+		<li> No </li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern> ^ ojos ^ claros ^</pattern>
+<template> 	
+	<condition name="ojos_personaje">
+		<li value="Claros">Si</li>
+		<li> No </li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern> ^ ojos ^ oscuros ^</pattern>
+<template> 	
+	<condition name="ojos_personaje">
+		<li value="Oscuros">Si</li>
+		<li> No </li>
+	</condition>
+</template>
+</category>
+
+
+<category>
+<pattern> ^ bigote ^</pattern>
+<template> 	
+	<condition name="bigote_personaje">
+		<li value="Si">Si</li>
+		<li> No </li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern> ^ barba ^</pattern>
+<template> 	
+	<condition name="bigote_personaje">
+		<li value="Si">Si</li>
+		<li> No </li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern> ^ personaje ^ es * </pattern>
+<template> 
+<think><set var="iguales">
+<srai>
+COMPARE <star index="3" /> WITH <get name="persona"/>
+</srai></set></think>	
+	<condition var="iguales">
+		<li value="YES">Si!! Has acertado!! Congratulation!!</li>
+		<li> No , intentalo de nuevo</li>
+	</condition>
+</template>
+</category>
+
+
+<!--
+
+<category>
+<pattern> son iguales</pattern>
+<template><get name="iguales"></get> </template>
+</category>
+
+<category>
+<pattern> $Quien ^ persona ^ elegida ^</pattern>
+<template><get name="persona"></get> </template>
+</category>
+
+<category>
+<pattern> $Quien ^ personaje ^ elegido ^</pattern>
+<template><get name="persona"></get> </template>
+</category>
+
+-->
+
+</topic>
+</aiml>

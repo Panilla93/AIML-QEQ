@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+<!-- Primera regla -->
+<category>
+<pattern>Hola</pattern>
+<template>Hola, que tal?</template>
+</category>
+
+<category>
+<pattern>Hola *</pattern>
+<template>Hola de nuevo, que tal?</template>
+</category>
+
+<category>
+<pattern>$Cual * tu nombre ^</pattern>
+<template>Mi nombre es HALfonso</template>
+</category>
+
+<category>
+<pattern>$Como * te llamas ^</pattern>
+<template>Mi nombre es HALfonso</template>
+</category>
+
+
+<category>
+<pattern>^ me llamo *</pattern>
+<template>Encantado, <think><set name="nombre"><star index="2"/></set></think><get name="nombre"/></template>
+</category>
+
+<category>
+<pattern> ^ mi nombre ^</pattern>
+<template>Tu nombre es <get name= "nombre"/></template>
+</category>
+
+<category>
+<pattern>^ y tu </pattern>
+<template>Estoy genial!!</template>
+</category>
+
+<category>
+<pattern>^ $que ^ tal ^ tu ^ </pattern>
+<template>Estoy genial!!</template>
+</category>
+
+<category>
+<pattern>^ </pattern>
+<template>Estas seguro que quieres decir eso?</template>
+</category>
+
+
+<category>
+<pattern>^ chiste ^ </pattern>
+<template>Uno del lepe va al cine,y la chica de la taquilla le dice:
+- Señor, esta es la quinta vez que compra su entrada.
+Y el lepero le contesta:
+- Es que el tío de la puerta me la rompe.</template>
+</category>
+
+
+<category>
+<pattern>Hasta luego</pattern>
+<template>Adios!!</template>
+</category>
+
+<category>
+<pattern>^ Adios ^</pattern>
+<template>Adios!!</template>
+</category>
+
+<category>
+<pattern>^ asignatura ^ IA ^ </pattern>
+<template>Sii!! <think><set name="topic"> IA </set></think> </template>
+</category>
+
+<category>
+<pattern> ^ jugar ^ </pattern>
+<template>
+	Sii!!, eliges tu o yo?
+	<think><set name="topic">juego-bot</set></think></template>
+</category>
+
+</aiml>
